@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "juanda-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -85,7 +85,7 @@
   users.users.juan-david = {
     isNormalUser = true;
     description = "Juan David";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -102,8 +102,71 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    home-manager
+    (bottles.override { removeWarningPopup = true; })
     wget
+    # git
+    # git-lfs
+    kdePackages.discover
+    mesa
+    protonup
+    obsidian
+    vscode
+    bitwarden-desktop
+    discord
+    arduino-ide
+    fastfetch
+    kdePackages.kdenlive
+    vlc
+    gimp
+    libreoffice-qt
+    hunspell
+    hunspellDicts.es_CO
+    hunspellDicts.en_US
   ];
+  #git
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+
+  # flatpak
+  services.flatpak.enable = true;
+  # kde-connect
+  programs.kdeconnect.enable = true;
+  # waydroid
+  virtualisation.waydroid.enable = true;
+  ## virtualbox
+  #virtualisation.virtualbox = {
+  #  host = {
+  #    enable = true;
+  #    enableExtensionPack = true;
+  #  };
+  #};
+  #users.extraGroups.vboxusers.members = [ "juan-david" ];
+  # docker
+  virtualisation.docker = {
+    enable = true;
+
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+      # Optionally customize rootless Docker daemon settings
+      daemon.settings = {
+        dns = [ "1.1.1.1" "8.8.8.8" ];
+        registry-mirrors = [ "https://mirror.gcr.io" ];
+      };
+    };
+  };
+
+  #genshin
+  networking.extraHosts =
+  ''
+    0.0.0.0 log-upload-os.hoyoverse.com
+    0.0.0.0 overseauspider.yuanshen.com
+  '';
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -112,6 +175,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.gamemode.enable = true;
 
   # List services that you want to enable:
 
