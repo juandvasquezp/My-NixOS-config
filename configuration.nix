@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules
     ];
 
   # Bootloader.
@@ -101,71 +102,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    home-manager
-    (bottles.override { removeWarningPopup = true; })
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    home-manager # Enbale the home manager
     wget
-    # git
-    # git-lfs
-    kdePackages.discover
-    mesa
-    protonup
-    obsidian
-    vscode
-    bitwarden-desktop
-    discord
-    arduino-ide
     fastfetch
-    kdePackages.kdenlive
-    vlc
-    gimp
-    libreoffice-qt
-    hunspell
-    hunspellDicts.es_CO
-    hunspellDicts.en_US
   ];
-  #git
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-  };
 
-  # flatpak
+  # Enable flatpak, lacks add repo TODO
   services.flatpak.enable = true;
-  # kde-connect
-  programs.kdeconnect.enable = true;
-  # waydroid
-  virtualisation.waydroid.enable = true;
-  ## virtualbox
-  #virtualisation.virtualbox = {
-  #  host = {
-  #    enable = true;
-  #    enableExtensionPack = true;
-  #  };
-  #};
-  #users.extraGroups.vboxusers.members = [ "juan-david" ];
-  # docker
-  virtualisation.docker = {
-    enable = true;
-
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-      # Optionally customize rootless Docker daemon settings
-      daemon.settings = {
-        dns = [ "1.1.1.1" "8.8.8.8" ];
-        registry-mirrors = [ "https://mirror.gcr.io" ];
-      };
-    };
-  };
-
-  #genshin
-  networking.extraHosts =
-  ''
-    0.0.0.0 log-upload-os.hoyoverse.com
-    0.0.0.0 overseauspider.yuanshen.com
-  '';
-
 
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -175,8 +119,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.gamemode.enable = true;
 
   # List services that you want to enable:
 
@@ -195,6 +137,10 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
+  # Enable experimental features command and flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   system.stateVersion = "25.05"; # Did you read the comment?
 }
 
