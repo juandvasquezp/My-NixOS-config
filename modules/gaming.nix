@@ -13,6 +13,10 @@
 
   # gamemode: for optimizing games
   programs.gamemode.enable = true;
+  # gamescope: for minimal ui for games
+  programs.gamemode.enable = true;
+
+
 
   # steam
   programs.steam = {

@@ -107,8 +107,9 @@
     home-manager # Enbale the home manager
     wget
     fastfetch
-    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {}) # Pipewire support for firefox
+    #(pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {}) # Pipewire support for firefox
   ];
+  programs.firefox.wrapperConfig = { pipewireSupport = true; };
 
   # Custom: touchpad and touchscreen features
   environment.sessionVariables = {

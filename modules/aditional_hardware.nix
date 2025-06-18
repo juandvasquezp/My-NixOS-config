@@ -18,6 +18,8 @@
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
       intel-media-sdk    # For Quick Sync Video (QSV)
       #vpl-gpu-rt        # For newer intel
+      intel-compute-runtime-legacy  # OpenCL, We have to try
+      rocmPackages.clr              # OpenCL, from lutris
     ];
   };
 
