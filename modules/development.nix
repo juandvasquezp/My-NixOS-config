@@ -19,4 +19,9 @@
     lfs.enable = true;
   };
   # git can be configured with home manager TODO
+
+  # Android
+  programs.adb.enable = true;
+  users.users.juan-david.extraGroups = ["adbusers"];
+
 }
