@@ -107,7 +107,14 @@
     home-manager # Enbale the home manager
     wget
     fastfetch
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {}) # Pipewire support for firefox
   ];
+
+  # Custom: touchpad and touchscreen features
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+
 
   # Enable flatpak, lacks add repo TODO
   services.flatpak.enable = true;

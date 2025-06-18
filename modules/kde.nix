@@ -13,6 +13,7 @@
     kdePackages.ksystemlog
     kdePackages.sddm-kcm # Configuration module for SDDM
     kdiff3
+    kdePackages.ktorrent
     kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
     hardinfo2 # System information and benchmarks for Linux systems
     # haruna # Open source video player built with Qt/QML and libmpv
@@ -21,6 +22,9 @@
     kdePackages.skanpage
     kdePackages.skanlite
     # texinfo en kubuntu, neochat, centro de bienvenida y thunderbird
+
+    # test
+    kdePackages.xdg-desktop-portal-kde
   ];
 
   # kde-connect
@@ -28,4 +32,9 @@
 
   # partition manager
   programs.partition-manager.enable = true;
+
+  # Firefox
+  programs.firefox.preferences = {
+    "widget.use-xdg-desktop-portal.file-picker" = 1;
+  };
 }

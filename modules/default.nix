@@ -6,5 +6,6 @@
     ./kde.nix
     ./utils.nix
     ./virtualization.nix
+    ./my_hp_printer.nix
   ];
 }
