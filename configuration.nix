@@ -49,6 +49,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true; # Custom
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -88,7 +89,7 @@
     description = "Juan David";
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-      kdePackages.kate
+    #  kdePackages.kate
     #  thunderbird
     ];
   };

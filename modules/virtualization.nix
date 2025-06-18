@@ -27,12 +27,17 @@
   };
   users.extraGroups.docker.members = [ "juan-david" ];
 
-  ## virtualbox
-  #virtualisation.virtualbox = {
-  #  host = {
-  #    enable = true;
-  #    enableExtensionPack = true;
-  #  };
-  #};
-  #users.extraGroups.vboxusers.members = [ "juan-david" ];
+  # virtualbox
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+  };
+  users.extraGroups.vboxusers.members = [ "juan-david" ];
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.users.juan-david.extraGroups = [ "libvirtd" ];
+
 }
