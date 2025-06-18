@@ -141,6 +141,10 @@
   # Enable experimental features command and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Found this in the steam nixos page, it allows us to run appimages seamesly, not only steam, otherwise use https://nixos.wiki/wiki/Appimage
+  #programs.appimage.enable = true;
+  #programs.appimage.binfmt = true;
+
   system.stateVersion = "25.05"; # Did you read the comment?
 }
 

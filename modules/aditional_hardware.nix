@@ -21,7 +21,17 @@
     ];
   };
 
+  # Aditional for 32 bits
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [
+    intel-vaapi-driver
+  ];
+
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD"; # O usa "i965" si prefieres probar el otro
   };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 }

@@ -3,6 +3,9 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    waydroid-helper
+  ];
   # waydroid
   virtualisation.waydroid.enable = true;
 
