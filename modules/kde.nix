@@ -21,6 +21,7 @@
     wl-clipboard # Command-line copy/paste utilities for Wayland
     kdePackages.skanpage
     kdePackages.skanlite
+    kdePackages.filelight
     # texinfo en kubuntu, neochat, centro de bienvenida y thunderbird
 
     # test

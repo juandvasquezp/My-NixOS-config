@@ -5,8 +5,9 @@
 {
   environment.systemPackages = with pkgs; [
     discord
+    mangohud
     (bottles.override { removeWarningPopup = true; }) # Bottes for genshin
-    protonup # Proton updated
+    protonplus # Proton updated
     obs-studio # Obs # It should hav video acceleration
     lutris # See https://nixos.wiki/wiki/Lutris if missing depndencies
   ];
@@ -14,9 +15,7 @@
   # gamemode: for optimizing games
   programs.gamemode.enable = true;
   # gamescope: for minimal ui for games
-  programs.gamemode.enable = true;
-
-
+  programs.gamescope.enable = true;
 
   # steam
   programs.steam = {
@@ -29,7 +28,6 @@
   # genshin workaround for os detection
   networking.extraHosts =
   ''
-    0.0.0.0 log-upload-os.hoyoverse.com
-    0.0.0.0 overseauspider.yuanshen.com
+    217.156.22.169 dispatchosglobal.yuanshen.com
   '';
 }

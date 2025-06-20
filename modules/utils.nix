@@ -20,6 +20,10 @@
     hunspell
     hunspellDicts.es_CO
     hunspellDicts.en_US
+    # Wine
+    wineWowPackages.stableFull
+    winetricks
+    wineWowPackages.waylandFull
   ];
 
   # Firefox testing
