@@ -24,6 +24,23 @@
     kdePackages.filelight
     # texinfo en kubuntu, neochat, centro de bienvenida y thunderbird
 
+    kdePackages.kwallet-pam # for kwallet automatic login
+    kdePackages.kinfocenter
+    kdePackages.kde-gtk-config
+    kdePackages.keditbookmarks
+    kdePackages.kinfocenter
+    # kdePackages.krohnkite
+    # yakuake
+    # wacomtablet
+
+    # online accounts
+    kdePackages.kaccounts-integration
+    kdePackages.kaccounts-providers
+    kdePackages.signond
+    kdePackages.kio
+    kdePackages.kio-gdrive
+    kdePackages.kio-extras
+
     # test
     kdePackages.xdg-desktop-portal-kde
   ];

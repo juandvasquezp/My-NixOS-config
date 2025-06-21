@@ -36,8 +36,11 @@
   };
   users.extraGroups.vboxusers.members = [ "juan-david" ];
 
-  virtualisation.libvirtd.enable = true;
+  # virtmanager / QEMU
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+  };
   programs.virt-manager.enable = true;
   users.users.juan-david.extraGroups = [ "libvirtd" ];
-
 }

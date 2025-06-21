@@ -26,6 +26,11 @@
     wineWowPackages.waylandFull
   ];
 
+  users.users.juan-david.packages = with pkgs; [
+    tor-browser   # Recommended in home manager TODO
+    vdhcoapp
+  ];
+
   # Firefox testing
   xdg.portal = {
     enable = true;
