@@ -33,6 +33,8 @@
     # yakuake
     # wacomtablet
 
+    kdePackages.krdc #RDP
+
     # online accounts
     kdePackages.kaccounts-integration
     kdePackages.kaccounts-providers
