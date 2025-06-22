@@ -12,8 +12,18 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # Custom: use grub
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      useOSProber = true;
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "juanda-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
