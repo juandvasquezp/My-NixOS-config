@@ -12,6 +12,11 @@
     lutris # See https://nixos.wiki/wiki/Lutris if missing depndencies
   ];
 
+  #users.users.juan-david.packages = with pkgs; [
+  #  # minecraft #Minecraft is marked as broken as of 2025/06/22, so I'll install it with flatpak instead
+  #  # mcpelauncher-ui-qt # And this one gives errors
+  #];
+
   # gamemode: for optimizing games
   programs.gamemode.enable = true;
   # gamescope: for minimal ui for games
