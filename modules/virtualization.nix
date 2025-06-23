@@ -28,13 +28,13 @@
   users.extraGroups.docker.members = [ "juan-david" ];
 
   # virtualbox
-  virtualisation.virtualbox = {
-    host = {
-      enable = true;
-      enableExtensionPack = true;
-    };
-  };
-  users.extraGroups.vboxusers.members = [ "juan-david" ];
+  #virtualisation.virtualbox = {
+  #  host = {
+  #    enable = true;
+  #    enableExtensionPack = true;
+  #  };
+  #};
+  #users.extraGroups.vboxusers.members = [ "juan-david" ];
 
   # virtmanager / QEMU
   virtualisation.libvirtd = {
