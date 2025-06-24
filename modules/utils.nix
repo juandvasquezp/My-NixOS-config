@@ -24,12 +24,28 @@
     wineWowPackages.stableFull
     winetricks
     wineWowPackages.waylandFull
+
+    # Archiveste
+    the-unarchiver
+    _7zz
+    _7zz-rar
   ];
 
   users.users.juan-david.packages = with pkgs; [
     tor-browser   # Recommended in home manager TODO
     vdhcoapp
   ];
+
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = true;
+      # UseDns = true;
+    };
+  };
+  programs.ssh.startAgent = true;
+  # security.pam.services.juan-david.kwallet.enable = true;
 
   # Firefox testing
   xdg.portal = {
