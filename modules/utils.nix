@@ -26,10 +26,17 @@
     wineWowPackages.waylandFull
 
     # Archiveste
-    the-unarchiver
-    _7zz
-    _7zz-rar
+    unar      #unrar free
+    (pkgs.writeShellScriptBin "7z" ''
+      exec ${pkgs._7zz}/bin/7zz "$@"
+    '') # use 7zz as 7z
+
+    # Appimages
+    appimage-run
   ];
+  # enable appimage support
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
   users.users.juan-david.packages = with pkgs; [
     tor-browser   # Recommended in home manager TODO
@@ -46,6 +53,14 @@
   };
   programs.ssh.startAgent = true;
   # security.pam.services.juan-david.kwallet.enable = true;
+
+  # GNUPG
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
+
+  programs.mosh.enable = true;
 
   # Firefox testing
   xdg.portal = {

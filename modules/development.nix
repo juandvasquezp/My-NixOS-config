@@ -9,8 +9,11 @@
     # git-lfs
     vscode
     arduino-ide
+    dbeaver-bin
+    wireshark
   ];
 
+  programs.wireshark.enable = true;
   # vscode can be customized with nix TODO
 
   # git
@@ -22,6 +25,6 @@
 
   # Android
   programs.adb.enable = true;
-  users.users.juan-david.extraGroups = ["adbusers"];
+  users.users.juan-david.extraGroups = ["adbusers" "wireshark"];
 
 }
